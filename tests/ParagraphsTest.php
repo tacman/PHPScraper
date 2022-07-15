@@ -42,7 +42,7 @@ class ParagraphsTest extends BaseTest
             'Here would be the second example.',
             'Here would be another example.',
             '',
-        ], $web->paragraphs);
+        ], $web->paragraphs());
     }
 
     /**
@@ -82,6 +82,6 @@ class ParagraphsTest extends BaseTest
             'Here would be an example.',
             'Here would be the second example.',
             'Here would be another example.',
-        ], $web->cleanParagraphs);
+        ], $web->cleanParagraphs());
     }
 }

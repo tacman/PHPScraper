@@ -15,8 +15,8 @@ class TwitterCardTest extends BaseTest
         $web->go($this->url . '/meta/missing.html');
 
         // Empty array, because there aren't any twitter cards props set.
-        $this->assertTrue(is_iterable($web->twitterCard));
-        $this->assertTrue(empty($web->twitterCard));
+        $this->assertTrue(is_iterable($web->twitterCard()));
+        $this->assertTrue(empty($web->twitterCard()));
     }
 
     /**
@@ -30,8 +30,8 @@ class TwitterCardTest extends BaseTest
         $web->go($this->url . '/twittercard/example.html');
 
         // Check elements
-        $this->assertSame('summary_large_image', $web->twitterCard['twitter:card']);
-        $this->assertSame('Lorem Ipsum', $web->twitterCard['twitter:title']);
+        $this->assertSame('summary_large_image', $web->twitterCard()['twitter:card']);
+        $this->assertSame('Lorem Ipsum', $web->twitterCard()['twitter:title']);
 
         // The whole set.
         $this->assertSame(
@@ -42,7 +42,7 @@ class TwitterCardTest extends BaseTest
                 'twitter:url' => $this->url . '/lorem-ipsum.html',
                 'twitter:image' => $this->url . '/assets/cat.jpg',
             ],
-            $web->twitterCard
+            $web->twitterCard()
         );
     }
 }

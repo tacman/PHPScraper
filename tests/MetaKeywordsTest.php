@@ -15,11 +15,11 @@ class MetaKeywordTest extends BaseTest
         $web->go($this->url . '/meta/missing.html');
 
         // null if there aren't any keywords set.
-        $this->assertSame(null, $web->keywordString);
+        $this->assertSame(null, $web->keywordString());
 
         // Empty array if there aren't any keywords set.
-        $this->assertTrue(is_iterable($web->keywords));
-        $this->assertTrue(empty($web->keywords));
+        $this->assertTrue(is_iterable($web->keywords()));
+        $this->assertTrue(empty($web->keywords()));
     }
 
     /**
@@ -33,8 +33,8 @@ class MetaKeywordTest extends BaseTest
         $web->go($this->url . '/meta/keywords/parse-no-spaces.html');
 
         // Check the keywords on this case...
-        $this->assertSame("one,two,three", $web->keywordString);
-        $this->assertSame(['one', 'two', 'three'], $web->keywords);
+        $this->assertSame("one,two,three", $web->keywordString());
+        $this->assertSame(['one', 'two', 'three'], $web->keywords());
     }
 
     /**
@@ -48,8 +48,8 @@ class MetaKeywordTest extends BaseTest
         $web->go($this->url . '/meta/keywords/parse-spaces.html');
 
         // Check the keywords on this case...
-        $this->assertSame("one, two, three", $web->keywordString);
-        $this->assertSame(['one', 'two', 'three'], $web->keywords);
+        $this->assertSame("one, two, three", $web->keywordString());
+        $this->assertSame(['one', 'two', 'three'], $web->keywords());
     }
 
     /**
@@ -63,8 +63,8 @@ class MetaKeywordTest extends BaseTest
         $web->go($this->url . '/meta/keywords/parse-irregular-spaces.html');
 
         // Check the keywords on this case...
-        $this->assertSame("one, two,   three", $web->keywordString);
-        $this->assertSame(['one', 'two', 'three'], $web->keywords);
+        $this->assertSame("one, two,   three", $web->keywordString());
+        $this->assertSame(['one', 'two', 'three'], $web->keywords());
     }
 
     /**
@@ -78,7 +78,7 @@ class MetaKeywordTest extends BaseTest
         $web->go($this->url . '/meta/html-entities.html');
 
         // Check the keywords
-        $this->assertSame(['Cat & Mouse', 'Mouse & Cat'], $web->keywords);
+        $this->assertSame(['Cat & Mouse', 'Mouse & Cat'], $web->keywords());
     }
 
     /**
@@ -92,7 +92,7 @@ class MetaKeywordTest extends BaseTest
         $web->go($this->url . '/meta/lorem-ipsum.html');
 
         // Check the keywords
-        $this->assertSame(['Lorem', 'ipsum', 'dolor'], $web->keywords);
+        $this->assertSame(['Lorem', 'ipsum', 'dolor'], $web->keywords());
     }
 
     /**
@@ -106,7 +106,7 @@ class MetaKeywordTest extends BaseTest
         $web->go($this->url . '/meta/german-umlaute.html');
 
         // Check the keywords
-        $this->assertSame(['keywords', 'schlüsselwörter'], $web->keywords);
+        $this->assertSame(['keywords', 'schlüsselwörter'], $web->keywords());
     }
 
     /**
@@ -120,6 +120,6 @@ class MetaKeywordTest extends BaseTest
         $web->go($this->url . '/meta/chinese-characters.html');
 
         // Check the keywords
-        $this->assertSame(['加油', '貓'], $web->keywords);
+        $this->assertSame(['加油', '貓'], $web->keywords());
     }
 }

@@ -103,6 +103,6 @@ class NavigationTest extends BaseTest
         $web->clickLink('https://peterthaleikis.com/');
 
         // Check the title
-        $this->assertSame('https://peterthaleikis.com/', $web->currentURL);
+        $this->assertSame('https://peterthaleikis.com/', $web->currentUrl());
     }
 }

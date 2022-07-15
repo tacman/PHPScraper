@@ -15,8 +15,8 @@ class OpenGraphTest extends BaseTest
         $web->go($this->url . '/meta/missing.html');
 
         // Empty array, because there aren't any open graph props set.
-        $this->assertTrue(is_iterable($web->openGraph));
-        $this->assertTrue(empty($web->openGraph));
+        $this->assertTrue(is_iterable($web->openGraph()));
+        $this->assertTrue(empty($web->openGraph()));
     }
 
     /**
@@ -30,8 +30,8 @@ class OpenGraphTest extends BaseTest
         $web->go($this->url . '/og/example.html');
 
         // Check elements
-        $this->assertSame('Lorem Ipsum', $web->openGraph['og:title']);
-        $this->assertSame('Lorem ipsum dolor etc.', $web->openGraph['og:description']);
+        $this->assertSame('Lorem Ipsum', $web->openGraph()['og:title']);
+        $this->assertSame('Lorem ipsum dolor etc.', $web->openGraph()['og:description']);
 
         // The whole set.
         $this->assertSame(
@@ -43,7 +43,7 @@ class OpenGraphTest extends BaseTest
                 'og:url' => $this->url . '/lorem-ipsum.html',
                 'og:image' => $this->url . '/assets/cat.jpg',
             ],
-            $web->openGraph
+            $web->openGraph()
         );
     }
 }

@@ -15,7 +15,7 @@ class MetaCsrfTokenTest extends BaseTest
         $web->go($this->url . '/meta/missing.html');
 
         // Check the csrfToken as not given (null)
-        $this->assertSame(null, $web->csrfToken);
+        $this->assertSame(null, $web->csrfToken());
     }
 
     /**
@@ -30,6 +30,6 @@ class MetaCsrfTokenTest extends BaseTest
         $web->go($this->url . '/meta/lorem-ipsum.html');
 
         // Check the csrfToken
-        $this->assertSame('token', $web->csrfToken);
+        $this->assertSame('token', $web->csrfToken());
     }
 }

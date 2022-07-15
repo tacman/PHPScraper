@@ -52,7 +52,7 @@ class OutlineTest extends BaseTest
                  "content" => "Example 3"
                ]
             ],
-            $web->outline
+            $web->outline()
         );
     }
 
@@ -125,7 +125,7 @@ class OutlineTest extends BaseTest
                  "content" => ""
                ]
             ],
-            $web->outlineWithParagraphs
+            $web->outlineWithParagraphs()
         );
     }
 }

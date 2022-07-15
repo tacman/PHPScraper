@@ -15,7 +15,7 @@ class MetaAuthorTest extends BaseTest
         $web->go($this->url . '/meta/meta/missing.html');
 
         // Check the author as not given (null)
-        $this->assertSame(null, $web->author);
+        $this->assertSame(null, $web->author());
     }
 
     /**
@@ -29,7 +29,7 @@ class MetaAuthorTest extends BaseTest
         $web->go($this->url . '/meta/html-entities.html');
 
         // Check the author
-        $this->assertSame('Cat & Mouse', $web->author);
+        $this->assertSame('Cat & Mouse', $web->author());
     }
 
     /**
@@ -43,7 +43,7 @@ class MetaAuthorTest extends BaseTest
         $web->go($this->url . '/meta/lorem-ipsum.html');
 
         // Check the author
-        $this->assertSame('Lorem ipsum', $web->author);
+        $this->assertSame('Lorem ipsum', $web->author());
     }
 
     /**
@@ -57,7 +57,7 @@ class MetaAuthorTest extends BaseTest
         $web->go($this->url . '/meta/german-umlaute.html');
 
         // Check the author
-        $this->assertSame('Müller', $web->author);
+        $this->assertSame('Müller', $web->author());
     }
 
     /**
@@ -71,6 +71,6 @@ class MetaAuthorTest extends BaseTest
         $web->go($this->url . '/meta/chinese-characters.html');
 
         // Check the author
-        $this->assertSame('貓', $web->author);
+        $this->assertSame('貓', $web->author());
     }
 }

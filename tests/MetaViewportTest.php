@@ -15,11 +15,11 @@ class MetaViewportTest extends BaseTest
         $web->go($this->url . '/meta/missing.html');
 
         // null if there isn't a viewport set.
-        $this->assertSame(null, $web->viewportString);
+        $this->assertSame(null, $web->viewportString());
 
         // Empty array if there aren't any viewports set.
-        $this->assertTrue(is_iterable($web->viewport));
-        $this->assertTrue(empty($web->viewport));
+        $this->assertTrue(is_iterable($web->viewport()));
+        $this->assertTrue(empty($web->viewport()));
     }
 
     /**
@@ -35,11 +35,11 @@ class MetaViewportTest extends BaseTest
         // Check the viewport
         $this->assertSame(
             'width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no',
-            $web->viewportString
+            $web->viewportString()
         );
         $this->assertSame(
             ['width=device-width', 'initial-scale=1', 'shrink-to-fit=no', 'maximum-scale=1', 'user-scalable=no'],
-            $web->viewport
+            $web->viewport()
         );
     }
 }

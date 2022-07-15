@@ -15,7 +15,7 @@ class MetaImageTest extends BaseTest
         $web->go('https://peterthaleikis.com');
 
         // Both the method call as well as property call should return the same...
-        $this->assertSame($web->image(), $web->image);
+        $this->assertSame($web->image(), $web->image());
     }
 
     /**
@@ -29,7 +29,7 @@ class MetaImageTest extends BaseTest
         $web->go($this->url . '/meta/missing.html');
 
         // Check the absolute image path
-        $this->assertSame(null, $web->image);
+        $this->assertSame(null, $web->image());
     }
 
     /**
@@ -43,7 +43,7 @@ class MetaImageTest extends BaseTest
         $web->go($this->url . '/meta/image/absolute-path.html');
 
         // Check the absolute image path
-        $this->assertSame("$this->url/assets/cat.jpg", $web->image);
+        $this->assertSame("$this->url/assets/cat.jpg", $web->image());
     }
 
     // /**
