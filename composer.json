@@ -27,9 +27,10 @@
         "symfony/dom-crawler": "^5.4 || ^6.0 "
     },
     "require-dev": {
-        "symfony/thanks": "*",
+        "phpstan/phpstan": "^1.8",
         "phpunit/phpunit": "^8.0",
-        "symfony/process": "^5.4 || ^6.0"
+        "symfony/process": "^5.4 || ^6.0",
+        "symfony/thanks": "*"
     },
     "autoload": {
         "psr-4": {
