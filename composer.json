@@ -18,12 +18,13 @@
         }
     ],
     "require": {
-        "php": "^7.3 | ^8.0",
+        "php": "^8.0",
         "ext-intl": "*",
+        "donatello-za/rake-php-plus": "^1.0.15",
         "fabpot/goutte": "^4.0",
-        "symfony/dom-crawler": "^5.4 || ^6.0 ",
-        "jeremykendall/php-domain-parser": "^5.6",
-        "donatello-za/rake-php-plus": "^1.0.15"
+        "jeremykendall/php-domain-parser": "^6.1.1",
+        "symfony/cache": "^6.1",
+        "symfony/dom-crawler": "^5.4 || ^6.0 "
     },
     "require-dev": {
         "symfony/thanks": "*",

@@ -14,6 +14,11 @@ use Pdp\Manager;
 
 // https://github.com/Donatello-za/rake-php-plus
 use DonatelloZa\RakePlus\RakePlus;
+use Pdp\Rules;
+use Pdp\Storage\PsrStorageFactory;
+use phpDocumentor\Reflection\Types\Integer;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
 class phpscraper
 {
@@ -27,7 +32,7 @@ class phpscraper
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(private CacheInterface $cache)
     {
         $this->core = new core();
     }
@@ -758,12 +763,12 @@ class core
     public function internalLinks()
     {
         // Get the current host - to compare against for internal links
-        $manager = new Manager(new Cache(), new CurlHttpClient());
-        $rules = $manager->getRules();
+        $rules = $this->getTldCollection();
+
 
         $root_domain = $rules
             ->resolve(parse_url($this->currentURL(), PHP_URL_HOST))
-            ->getRegistrableDomain();
+            ->registrableDomain();
 
 
         // Filter the array
@@ -772,11 +777,28 @@ class core
             function ($link) use (&$root_domain, &$rules) {
                 $link_root_domain = $rules
                     ->resolve(parse_url($link, PHP_URL_HOST))
-                    ->getRegistrableDomain();
+                    ->registrableDomain();
 
                 return ($root_domain === $link_root_domain);
             }
         ));
+    }
+
+    public function getTldCollection(): Rules
+    {
+
+        $rules = $this->cache->get('pdp_rules', function (ItemInterface $item) {
+            // The callable will only be executed on a cache miss.
+            $item->expiresAfter(3600 * 24);
+            $response = $this->client->request(
+                'GET',
+                PsrStorageFactory::PUBLIC_SUFFIX_LIST_URI
+            );
+            return $response->getContent();
+        });
+
+        $publicSuffixList = Rules::fromString($rules);
+        return $publicSuffixList;
     }
 
     /**
