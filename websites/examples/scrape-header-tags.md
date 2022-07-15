@@ -84,7 +84,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/navigation/1.html');
 
 // Print the canonical URL
-echo $web->canonical;       // "https://test-pages.phpscraper.de/navigation/2.html"
+echo $web->canonical();       // "https://test-pages.phpscraper.de/navigation/2.html"
 ```
 
 ::: tip

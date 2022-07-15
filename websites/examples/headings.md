@@ -26,7 +26,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/content/online.html');
 
 // Print the H1 heading
-echo $web->h1[0];          // "We are testing here!"
+echo $web->h1()[0];          // "We are testing here!"
 ```
 
 ::: tip
@@ -64,7 +64,7 @@ $web->go('https://test-pages.phpscraper.de/content/online.html');
  *    'Example 3'
  * ]
  */
-$secondaryHeadings = $web->h3;
+$secondaryHeadings = $web->h3();
 ```
 
 If no headings are found, the array is left empty.

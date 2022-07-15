@@ -16,7 +16,7 @@ class KeywordTest extends BaseTest
         $web->go($this->url . '/content/keywords.html');
 
         // Check the keywords on this case...
-        $keywords = $web->contentKeywords;
+        $keywords = $web->contentKeywords();
 
         // A selected list of keywords to expect
         $shouldKeywords = [
@@ -58,7 +58,7 @@ class KeywordTest extends BaseTest
         $web->go($this->url . '/content/keywords.html');
 
         // Check the keywords on this case...
-        $keywords = $web->contentKeywordsWithScores;
+        $keywords = $web->contentKeywordsWithScores();
 
         // A selected list of keywords to expect
         $shouldKeywords = [

@@ -28,7 +28,7 @@ $web = new \spekulatius\phpscraper();
  */
 $web->go('https://test-pages.phpscraper.de/content/lists.html');
 
-var_dump($web->unorderedLists);
+var_dump($web->unorderedLists());
 /**
  * Only unordered lists (<ul>)
  *
@@ -44,7 +44,7 @@ var_dump($web->unorderedLists);
  * ]
  */
 
-var_dump($web->orderedLists);
+var_dump($web->orderedLists());
 /**
  * Only ordered lists (<ol>)
  *
@@ -61,7 +61,7 @@ var_dump($web->orderedLists);
  */
 
 // Both lists combined (as above)
-var_dump($web->lists);
+var_dump($web->lists());
 ```
 
 ::: warning Nested Lists

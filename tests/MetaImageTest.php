@@ -69,7 +69,7 @@ class MetaImageTest extends BaseTest
 
     //     // Navigate to the test page.
     //     $web->go($this->url . '/meta/image/absolute-path-with-base-href.html');
-    //     $this->assertNotSame("Page Not Found", $web->title);
+    //     $this->assertNotSame("Page Not Found", $web->title());
 
     //     // Check the absolute image path
     //     $this->assertSame("$this->url/assets/cat.jpg", $web->image);
@@ -84,7 +84,7 @@ class MetaImageTest extends BaseTest
 
     //     // Navigate to the test page.
     //     $web->go($this->url . '/meta/image/relative-path-with-base-href.html');
-    //     $this->assertNotSame("Page Not Found", $web->title);
+    //     $this->assertNotSame("Page Not Found", $web->title());
 
     //     // Check the relative image path
     //     $this->assertSame("$this->url/assets/cat.jpg", $web->image);

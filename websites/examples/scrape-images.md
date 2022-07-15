@@ -23,7 +23,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/meta/lorem-ipsum.html');
 
 // Check if any images have been found
-$images = $web->images;
+$images = $web->images();
 if (count($images) > 0) {
 
     var_dump($images);
@@ -54,7 +54,7 @@ If you are in need of more details the following requests allows you to access a
 $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/meta/lorem-ipsum.html');
 
-var_dump($web->imagesWithDetails);
+var_dump($web->imagesWithDetails());
 /**
  * [
  *     'url' => 'https://test-pages.phpscraper.de/assets/cat.jpg',

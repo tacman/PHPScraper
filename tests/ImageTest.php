@@ -15,8 +15,8 @@ class ImageTest extends BaseTest
         $web->go($this->url . '/meta/missing.html');
 
         // No images -> an empty array is expected.
-        $this->assertSame([], $web->images);
-        $this->assertSame([], $web->imagesWithDetails);
+        $this->assertSame([], $web->images());
+        $this->assertSame([], $web->imagesWithDetails());
     }
 
     /**
@@ -30,13 +30,13 @@ class ImageTest extends BaseTest
         $web->go($this->url . '/meta/lorem-ipsum.html');
 
         // Navigate to the test page. This page contains two images (cat.jpg).
-        $this->assertSame(2, count($web->images));
+        $this->assertSame(2, count($web->images()));
 
         // Check the simple list
         $this->assertSame([
             $this->url . '/assets/cat.jpg',
             $this->url . '/assets/cat.jpg',
-        ], $web->images);
+        ], $web->images());
 
         // Check the expected data
         $this->assertSame([
@@ -52,7 +52,7 @@ class ImageTest extends BaseTest
                 'width' => null,
                 'height' => null,
             ],
-        ], $web->imagesWithDetails);
+        ], $web->imagesWithDetails());
     }
 
     /**
@@ -66,16 +66,16 @@ class ImageTest extends BaseTest
         $web->go($this->url . '/meta/german-umlaute.html');
 
         // Check the h1
-        $this->assertSame('We are testing here ä ü ö!', $web->h1[0]);
+        $this->assertSame('We are testing here ä ü ö!', $web->h1()[0]);
 
         // Check the number of images
-        $this->assertSame(2, count($web->images));
+        $this->assertSame(2, count($web->images()));
 
         // Check the simple list
         $this->assertSame([
             $this->url . '/assets/katze-ä-ü-ö.jpg',
             $this->url . '/assets/katze-ä-ü-ö.jpg',
-        ], $web->images);
+        ], $web->images());
 
         // Check the expected data
         $this->assertSame([
@@ -91,7 +91,7 @@ class ImageTest extends BaseTest
                 'width' => null,
                 'height' => null,
             ],
-        ], $web->imagesWithDetails);
+        ], $web->imagesWithDetails());
     }
 
     /**
@@ -105,13 +105,13 @@ class ImageTest extends BaseTest
         $web->go($this->url . '/meta/chinese-characters.html');
 
         // Check the number of images
-        $this->assertSame(2, count($web->images));
+        $this->assertSame(2, count($web->images()));
 
         // Check the simple list
         $this->assertSame([
             $this->url . '/assets/貓.jpg',
             $this->url . '/assets/貓.jpg',
-        ], $web->images);
+        ], $web->images());
 
         // Check the expected data
         $this->assertSame([
@@ -127,7 +127,7 @@ class ImageTest extends BaseTest
                 'width' => null,
                 'height' => null,
             ],
-        ], $web->imagesWithDetails);
+        ], $web->imagesWithDetails());
     }
 
     /**
@@ -141,14 +141,14 @@ class ImageTest extends BaseTest
         $web->go($this->url . '/images/base-href.html');
 
         // Check the number of images
-        $this->assertSame(2, count($web->images));
+        $this->assertSame(2, count($web->images()));
 
         // Current broken, due to bug in Goutte/DOMCrawler
         // Temporary deactivated, because relative paths using base_href doesn't work.
         // $this->assertSame([
         //     $this->url . '/assets/cat.jpg',
         //     $this->url . '/assets/cat.jpg',
-        // ], $web->images);
+        // ], $web->images());
 
         // $this->assertSame([
         //     [
@@ -163,7 +163,7 @@ class ImageTest extends BaseTest
         //         'width' => null,
         //         'height' => null,
         //     ],
-        // ], $web->imagesWithDetails);
+        // ], $web->imagesWithDetails());
     }
 
     /**
@@ -177,7 +177,7 @@ class ImageTest extends BaseTest
         $web->go($this->url . '/images/width.html');
 
         // Check the number of images
-        $this->assertSame(3, count($web->images));
+        $this->assertSame(3, count($web->images()));
 
         // Check the expected data
         $this->assertSame([
@@ -199,7 +199,7 @@ class ImageTest extends BaseTest
                 'width' => '100rem',
                 'height' => null,
             ],
-        ], $web->imagesWithDetails);
+        ], $web->imagesWithDetails());
     }
 
     /**
@@ -213,7 +213,7 @@ class ImageTest extends BaseTest
         $web->go($this->url . '/images/height.html');
 
         // Check the number of imagess
-        $this->assertSame(3, count($web->images));
+        $this->assertSame(3, count($web->images()));
 
         // Check the expected data
         $this->assertSame([
@@ -235,6 +235,6 @@ class ImageTest extends BaseTest
                 'width' => null,
                 'height' => '100rem',
             ],
-        ], $web->imagesWithDetails);
+        ], $web->imagesWithDetails());
     }
 }

@@ -30,10 +30,10 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/links/target.html');
 
 // Print the number of links.
-echo "This page contains " . count($web->links) . " links.\n\n";
+echo "This page contains " . count($web->links()) . " links.\n\n";
 
 // Loop through the links
-foreach ($web->links as $link) {
+foreach ($web->links() as $link) {
     echo " - " . $link . "\n";
 }
 
@@ -69,7 +69,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/links/rel.html');
 
 // Get the first link on the page.
-$firstLink = $web->linksWithDetails[0];
+$firstLink = $web->linksWithDetails()[0];
 
 /**
  * $firstLink contains now:
@@ -102,7 +102,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/links/base-href.html');
 
 // Get the list of internal links (in the example an image is linked)
-var_dump($web->internalLinks);
+var_dump($web->internalLinks());
 /**
  * [
  *     'https://test-pages.phpscraper.de/assets/cat.jpg'

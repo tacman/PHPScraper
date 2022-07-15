@@ -25,7 +25,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/content/keywords.html');
 
 // check the number of keywords.
-$keywords = $web->contentKeywords;
+$keywords = $web->contentKeywords();
 echo "This page contains at least " . count($keywords) . " keywords/phrases.\n\n";
 
 // Loop through the keywords
@@ -85,7 +85,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/content/keywords.html');
 
 // check the number of keywords.
-$keywords = $web->contentKeywordsWithScores;
+$keywords = $web->contentKeywordsWithScores();
 echo "This page contains at least " . count($keywords) . " keywords/phrases.\n\n";
 
 // Loop through the keywords

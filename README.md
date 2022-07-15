@@ -30,7 +30,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://google.com');
 
 // Returns "Google"
-echo $web->title;
+echo $web->title();
 
 // Also returns "Google"
 echo $web->title();
@@ -51,7 +51,7 @@ $web = new \spekulatius\phpscraper();
  */
 $web->go('https://test-pages.phpscraper.de/meta/lorem-ipsum.html');
 
-var_dump($web->imagesWithDetails);
+var_dump($web->imagesWithDetails());
 /**
  * Contains:
  *

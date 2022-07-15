@@ -31,21 +31,21 @@ class ListsTest extends BaseTest
         $web->go($this->url . '/content/lists.html');
 
         // Check all lists are recognized
-        $this->assertSame(count($web->lists), 2);
-        $this->assertSame(count($web->unorderedLists), 1);
-        $this->assertSame(count($web->orderedLists), 1);
+        $this->assertSame(count($web->lists()), 2);
+        $this->assertSame(count($web->unorderedLists()), 1);
+        $this->assertSame(count($web->orderedLists()), 1);
 
         // Check the contents
         $this->assertSame([
             'Ordered list item 1',
             'Ordered list item 2',
             'Ordered list item with HTML',
-        ], $web->orderedLists[0]['children_plain']);
+        ], $web->orderedLists()[0]['children_plain']);
 
         $this->assertSame([
             'Unordered list item 1',
             'Unordered list item 2',
             'Unordered list item with HTML',
-        ], $web->unorderedLists[0]['children_plain']);
+        ], $web->unorderedLists()[0]['children_plain']);
     }
 }

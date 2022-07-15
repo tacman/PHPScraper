@@ -25,7 +25,7 @@ $web->go('https://test-pages.phpscraper.de/meta/lorem-ipsum.html');
 
 // Fetch the title. This should return:
 // "Lorem Ipsum"
-var_dump($web->title);
+var_dump($web->title());
 ```
 
 
@@ -40,7 +40,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/meta/missing.html');
 
 // Fetch the title. This should return null.
-var_dump($web->title);
+var_dump($web->title());
 ```
 
 Note: This is the default behaviour: If a tag wasn't found because it's missing in the source HTML, `null` will be returned. If an iteratable item is empty (e.g. scraping images from a page without images), an empty array will be returned.
@@ -61,7 +61,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/meta/german-umlaute.html');
 
 // Print the title: "A page with plenty of German umlaute everywhere (ä ü ö)"
-echo $web->title;
+echo $web->title();
 ```
 
 It should work in similar manner with any UTF-8 characters.
@@ -82,7 +82,7 @@ $web = new \spekulatius\phpscraper();
 $web->go('https://test-pages.phpscraper.de/meta/html-entities.html');
 
 // Print the title: "Cat & Mouse'"
-echo $web->title;
+echo $web->title();
 ```
 
 ::: tip

@@ -4,22 +4,6 @@ namespace Tests;
 
 class CoreTest extends BaseTest
 {
-    /**
-     * @test
-     */
-    public function testMethodAndPropertyCallsAreEqual()
-    {
-        $web = new \spekulatius\phpscraper();
-
-        // Navigate to test page
-        $web->go('https://phpscraper.de');
-
-        // Both the method call as well as property call should return the same...
-        $this->assertSame($web->title(), $web->title);
-
-        // So...
-        $this->assertSame($web->title, $web->title());
-    }
 
     /**
      * @test
@@ -34,7 +18,7 @@ class CoreTest extends BaseTest
         // Both the method call as well as property call should return the same...
         $this->assertSame(
             "PHP Scraper - An opinionated web-scraping library for PHP",
-            $web->title
+            $web->title()
         );
 
 
@@ -44,7 +28,7 @@ class CoreTest extends BaseTest
         // Shouldn't match, because we surfed on...
         $this->assertNotSame(
             "PHP Scraper - An opinionated web-scraping library for PHP",
-            $web->title
+            $web->title()
         );
     }
 }

@@ -49,6 +49,6 @@ class BaseTest extends TestCase
 
         // Navigate to the test page.
         $web->go($this->url . '/page-does-not-exist.html');
-        $this->assertSame('404 Not Found', $web->title);
+        $this->assertSame('404 Not Found', $web->title());
     }
 }

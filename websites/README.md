@@ -70,7 +70,7 @@ $web = new \spekulatius\phpscraper();
  */
 $web->go('https://test-pages.phpscraper.de/meta/lorem-ipsum.html');
 
-var_dump($web->imagesWithDetails);
+var_dump($web->imagesWithDetails());
 /**
  * [
  *     'url' => 'https://test-pages.phpscraper.de/assets/cat.jpg',
@@ -87,7 +87,7 @@ var_dump($web->imagesWithDetails);
  */
 ```
 
-Some information *optionally* is returned as an array with details. For this example, a simple list of images is available using `$web->images` too. This should make your web scraping easier.
+Some information *optionally* is returned as an array with details. For this example, a simple list of images is available using `$web->images()` too. This should make your web scraping easier.
 
 More example code can be found in the sidebar or the tests.
 

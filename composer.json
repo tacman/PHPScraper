@@ -24,11 +24,13 @@
         "fabpot/goutte": "^4.0",
         "jeremykendall/php-domain-parser": "^6.1.1",
         "symfony/cache": "^6.1",
+        "symfony/cache-contracts": "^3.1",
         "symfony/dom-crawler": "^5.4 || ^6.0 "
     },
     "require-dev": {
         "phpstan/phpstan": "^1.8",
         "phpunit/phpunit": "^8.0",
+        "symfony/error-handler": "^6.1",
         "symfony/process": "^5.4 || ^6.0",
         "symfony/thanks": "*"
     },

@@ -17,7 +17,7 @@ class CanonicalTest extends BaseTest
         $web->go($this->url . '/meta/missing.html');
 
         // null if there isn't a canonical set.
-        $this->assertSame(null, $web->canonical);
+        $this->assertSame(null, $web->canonical());
     }
 
     /**
@@ -34,7 +34,7 @@ class CanonicalTest extends BaseTest
         // Check the canonical
         $this->assertSame(
             $this->url . '/navigation/2.html',
-            $web->canonical
+            $web->canonical()
         );
     }
 }
